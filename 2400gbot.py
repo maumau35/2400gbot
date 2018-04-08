@@ -11,14 +11,6 @@ reddit=praw.Reddit(client_id='',
                    user_agent='')
 
 
-#if not os.path.isfile("posts_replie_to.txt"):
-    #posts_replie_to = []
-#else:
-    #with open("posts_replie_to.txt", "r") as f:
-        #posts_replie_to = f.read()
-        #posts_replie_to = posts_replie_to.split("\n")
-        #posts_replie_to = list(filter(None, posts_replie_to))
-
 if not os.path.isfile("posts_repli_to.txt"):
     posts_repli_to = []
 else:
