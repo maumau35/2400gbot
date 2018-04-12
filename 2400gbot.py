@@ -19,13 +19,12 @@ reddit=praw.Reddit(client_id='',
         #posts_replie_to = f.read()
         #posts_replie_to = posts_replie_to.split("\n")
         #posts_replie_to = list(filter(None, posts_replie_to))
-done=['2400gbot']
+done= '2400gbot'
 if not os.path.isfile("posts_repli_to.txt"):
     posts_repli_to = []
 else:
     with open("posts_repli_to.txt", "r") as f:
-        posts_repli_to = f.read()
-        posts_repli_to = posts_repli_to.split("\n")
+        posts_repli_to = [line for line in f]
         posts_repli_to = list(filter(None, posts_repli_to))
 
 subreddit = reddit.subreddit('all')
@@ -38,12 +37,12 @@ for comment in comments:
         if re.search("i'm sad", comment.body, re.IGNORECASE):
 
             if author.name in posts_repli_to:
-                if author.name not in done:
+                if author.name not != done:
                     print "you have already commented on /u/%s before" % comment.author
 
 
 
-            if author.name not in posts_repli_to and author.name not in done:
+            if author.name not in posts_repli_to and author.name != done:
                 comment.body=comment.body.split("\n")
                 print"replying to {0}'s comment: {1}".format(comment.author, comment.body)
                 posts_repli_to.append(author.name)
