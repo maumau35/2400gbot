@@ -28,9 +28,44 @@ else:
         posts_repli_to = f.read()
         posts_repli_to = posts_repli_to.split("\n")
         posts_repli_to = list(filter(None, posts_repli_to))
+if not os.path.isfile("post_repl_to.txt"):
+    post_repl_to = []
+else:
+    with open("post_repl_to.txt", "r") as f:
+        post_repl_to = f.read()
+        post_repl_to = post_repl_to.split("\n")
+        post_repl_to = list(filter(None, post_repl_to))
+
+
+
+
+
+
+for item in reddit.inbox.all(limit=500):
+    if isinstance(item, Message):
+        if item.author not in post_repl_to:
+            if "block" in item.body or "Block" in item.body:
+                post_repl_to.append(item.author)
+                with open("post_repl_to.txt", "w") as f:
+                    for item.author in post_repl_to:
+
+                        f.write(str(item.author) + "\n")
+
+
+                message="This bot is not able to react to you anymore."
+                subject="block"
+                item.author.message(subject,message)
+                print "blocked %s" % item.author
+
+
+        if item.author is None:
+            continue
+
+
 
 subreddit = reddit.subreddit('all')
 comments = subreddit.stream.comments()
+
 for comment in comments:
     author=comment.author
     try:
@@ -45,7 +80,7 @@ for comment in comments:
 
 
 
-                if author.name not in posts_repli_to and author.name not in done:
+                if author.name not in posts_repli_to and author.name not in done and author.name not in post_repl_to:
                     if comment.subreddit not in ["test","depression","suicidewatch"]:
                         comment.body=comment.body.split("\n")
                         print"replying to {0}'s (I'm lonely) comment: {1}".format(comment.author, comment.body)
@@ -56,7 +91,7 @@ for comment in comments:
 
 Here are a few funny [dog pictures](https://imgur.com/a/XyHgX) for you /u/%s, to cheer you up!
 ___
-^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot)""") % author.name
+^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
 
                         n=1
                         if n==1:
@@ -83,7 +118,7 @@ ___
 
 
 
-                if author.name not in posts_repli_to and author.name not in done:
+                if author.name not in posts_repli_to and author.name not in done and author.name not in post_repl_to:
                     if comment.subreddit not in ["test","depression","suicidewatch"]:
                         comment.body=comment.body.split("\n")
                         print"replying to {0}'s (I'm sad ) comment: {1}".format(comment.author, comment.body)
@@ -92,7 +127,7 @@ ___
 
 Here are a few funny [cat pictures](https://imgur.com/a/eqX4F) for you /u/%s, to cheer you up!
 ___
-^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot)""") % author.name
+^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
                         n=1
                         if n==1:
                             comment.reply(message)
@@ -106,7 +141,6 @@ ___
 
 
 
+
     except:
         pass
-
-
