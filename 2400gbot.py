@@ -12,14 +12,7 @@ reddit=praw.Reddit(client_id='',
                    user_agent='')
 
 
-                        if comment.subreddit not in ["test","depression","suicidewatch"]:
-                            comment.body=comment.body.split("\n")
-                            print"replying to {0}'s (I'm lonely) comment: {1}".format(comment.author, comment.body)
-                            posts_repli_to.append(author.name)
-                            message=(""">I'm lonely
-
-
-
+                        
 done=['2400gbot']
 if not os.path.isfile("posts_repli_to.txt"):
     posts_repli_to = []
