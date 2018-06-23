@@ -74,7 +74,7 @@ for comment in comments:
 
 
                 if author.name not in posts_repli_to and author.name not in done and author.name not in post_repl_to:
-                    if comment.subreddit not in ["test","depression","suicidewatch"]:
+                    if comment.subreddit not in ["test","depression","suicidewatch","pcmasterrace"]:
                         comment.body=comment.body.split("\n")
                         print"replying to {0}'s (I'm lonely) comment: {1}".format(comment.author, comment.body)
                         posts_repli_to.append(author.name)
@@ -112,7 +112,7 @@ ___
 
 
                 if author.name not in posts_repli_to and author.name not in done and author.name not in post_repl_to:
-                    if comment.subreddit not in ["test","depression","suicidewatch"]:
+                    if comment.subreddit not in ["test","depression","suicidewatch","pcmasterrace"]:
                         comment.body=comment.body.split("\n")
                         print"replying to {0}'s (I'm sad ) comment: {1}".format(comment.author, comment.body)
                         posts_repli_to.append(author.name)
