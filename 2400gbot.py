@@ -3,7 +3,7 @@ import pdb
 import re
 import os
 import prawcore
-
+import random
 
 reddit=praw.Reddit(client_id='',
                    client_secret='',
@@ -12,8 +12,8 @@ reddit=praw.Reddit(client_id='',
                    user_agent='')
 
 
-                        
-done=['2400gbot']
+                       
+ done=['2400gbot']
 if not os.path.isfile("posts_repli_to.txt"):
     posts_repli_to = []
 else:
@@ -76,9 +76,9 @@ for comment in comments:
                 if author.name not in posts_repli_to and author.name not in done and author.name not in post_repl_to:
                     if comment.subreddit not in ["test","depression","suicidewatch","pcmasterrace"]:
                         comment.body=comment.body.split("\n")
-                        print"replying to {0}'s (I'm lonely) comment: {1}".format(comment.author, comment.body)
+                        print"replying to {0}'s (I'm lonely) comment: {1}".format(author.name, comment.body)
                         posts_repli_to.append(author.name)
-                        message=(""">I'm lonely
+                        message1=(""">I'm lonely
 
 
 
@@ -110,20 +110,32 @@ ___
                         print "you have already commented on /u/%s before" % comment.author
 
 
-
                 if author.name not in posts_repli_to and author.name not in done and author.name not in post_repl_to:
                     if comment.subreddit not in ["test","depression","suicidewatch","pcmasterrace"]:
                         comment.body=comment.body.split("\n")
-                        print"replying to {0}'s (I'm sad ) comment: {1}".format(comment.author, comment.body)
+                        print"replying to {0}'s (I'm sad ) comment: {1}".format(author.name, comment.body)
                         posts_repli_to.append(author.name)
+                        ok = random.randint(0,1)
+                        print ok
                         message=(""">I'm sad
 
 Here are a few funny [cat pictures](https://imgur.com/a/eqX4F) for you /u/%s, to cheer you up!
 ___
 ^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
-                        n=1
-                        if n==1:
+                        message2=(""">I'm sad
+
+
+
+Here are a few funny [dog pictures](https://imgur.com/a/XyHgX) for you /u/%s, to cheer you up!
+___
+^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
+                        if ok == 0:
                             comment.reply(message)
+                            with open("posts_repli_to.txt", "w") as f:
+                                for author.name in posts_repli_to:
+                                    f.write(author.name + "\n")
+                        else:
+                            comment.reply(message2)
                             with open("posts_repli_to.txt", "w") as f:
                                 for author.name in posts_repli_to:
                                     f.write(author.name + "\n")
@@ -137,3 +149,4 @@ ___
 
     except:
         pass
+
