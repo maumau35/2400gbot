@@ -91,7 +91,7 @@ for comment in comments:
 
 Here are a few funny [dog pictures](https://imgur.com/a/XyHgX) for you /u/%s, to cheer you up!
 ___
-^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
+^^Hello, ^^I'm ^^a ^^bot ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
 
                         n=1
                         if n==1:
@@ -128,14 +128,14 @@ ___
 
 Here are a few funny [cat pictures](https://imgur.com/a/eqX4F) for you /u/%s, to cheer you up!
 ___
-^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
+^^Hello, ^^I'm ^^a ^^bot ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
                         message2=(""">I'm sad
 
 
 
 Here are a few funny [dog pictures](https://imgur.com/a/XyHgX) for you /u/%s, to cheer you up!
 ___
-^^Hello, ^^I'm ^^a ^^bot ^^and ^^this  ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
+^^Hello, ^^I'm ^^a ^^bot ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^for ^^questions ^^pm ^^me. ^^[Source](https://github.com/maumau35/2400gbot) ^^if ^^you ^^don't ^^want ^^this ^^bot ^^to ^^reply ^^to ^^you ^^message ^^'block'""") % author.name
                         if ok == 0:
                             comment.reply(message)
                             with open("posts_repli_to.txt", "w") as f:
